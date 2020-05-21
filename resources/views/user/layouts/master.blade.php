@@ -102,7 +102,13 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-3 col-md-12 col-sm-12 column">
-                        <figure class="logo-box"><a href="index.html"><img src="{{ asset('public/asset/assets_users/images/logo.png') }}" alt=""></a></figure>
+                         @php
+                            $logos = \App\Contactuscontent::all();
+                        @endphp
+                        @foreach ($logos as $logo)
+                        <figure class="logo-box"><a href="{{url('/')}}"><img src='{{ asset("public/logo/logo_images/$logo->image")}}' alt=""></a></figure>
+                        @endforeach
+                        
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 menu-column">
                         <div class="menu-area">
@@ -124,11 +130,11 @@
                                         <li class="{{ (request()->is('ourgallary')) ? 'current' : '' }}"><a href="{{ route('ourgallary.index') }}">Gallary</a>
                                            
                                         </li>
-                                        <li class="dropdown"><a href="#">Why Us</a>
+                                        <li class="{{ (request()->is('whyus')) ? 'current' : '' }}"><a href="{{ route('whyus.index')}}">Why Us</a>
                                         </li>  
                                         <li class="{{ (request()->is('ourblogs*')) ? 'current' : '' }}"><a href="{{ route('ourblogs.index') }}">Blog</a>
                                         </li>                              
-                                        <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
+                                        <li class="{{ (request()->is('contact*')) ? 'current' : '' }}"><a href="{{ route('contact.index') }}">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -153,7 +159,7 @@
                             $logos = \App\Contactuscontent::all();
                         @endphp
                         @foreach ($logos as $logo)
-                        <figure class="logo-box"><a href="index.html"><img src='{{ asset("public/logo/logo_images/$logo->image")}}' alt=""></a></figure>
+                        <figure class="logo-box"><a href="{{url('/')}}"><img src='{{ asset("public/logo/logo_images/$logo->image")}}' alt=""></a></figure>
                         @endforeach
                     </div>
                     <div class="col-lg-8 col-md-12 col-sm-12 menu-column">
@@ -176,7 +182,7 @@
                                         <li class="{{ (request()->is('ourgallary')) ? 'current' : '' }}"><a href="{{ route('ourgallary.index') }}">Gallary</a>
                                            
                                         </li>
-                                        <li class="dropdown"><a href="#">Why Us</a>
+                                        <li class="{{ (request()->is('whyus')) ? 'current' : '' }}"><a href="{{ route('whyus.index') }}">Why Us</a>
                                             
                                         </li>  
                                         <li class="{{ (request()->is('ourblogs*')) ? 'current' : '' }}"><a href="{{ route('ourblogs.index') }}">Blog</a>
@@ -205,7 +211,12 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                         <div class="logo-widget footer-widget">
-                            <figure class="logo-box"><a href="index-5.html"><img src="{{ asset('public/asset/assets_users/images/footer-logo.png') }}" alt=""></a></figure>
+                            @php
+                                $logos = \App\Contactuscontent::all();
+                                @endphp
+                            @foreach ($logos as $logo)
+                            <figure class="logo-box"><a href="{{url('/')}}"><img src='{{ asset("public/logo/logo_images/$logo->image")}}' alt=""></a></figure>
+                            @endforeach
                             <div class="text">
                                 @php
                                     $descriptions = \App\Contactuscontent::all();

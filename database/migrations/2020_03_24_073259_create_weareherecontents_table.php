@@ -16,6 +16,7 @@ class CreateWeareherecontentsTable extends Migration
         Schema::create('weareherecontents', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title',1000);
+            $table->string('image',1000);
             $table->string('description',1000);
             $table->timestamps();
         });

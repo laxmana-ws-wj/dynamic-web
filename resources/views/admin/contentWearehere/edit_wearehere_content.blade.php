@@ -34,6 +34,26 @@ Dashboard | Active Boys
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-3 col-form-label">Image</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control previewImg" name="image" id="image" placeholder="Slider Image File" value="{{ old('image') }}">
+                                    <input type="hidden" class="form-control" name="old_image"  value="{{ $weareherecontent->image }}">
+                                    @if ($errors->has('image'))
+                                        <span class="messages">{{ $errors->first('image') }}</span>
+                                    @endif
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <img src='{{asset("public/whyus/whyus_images/$weareherecontent->image")}}' height="60px";width="60px"; >
+                                        </div>
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-3">
+                                            <span id="previewImg"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-3 col-form-label">Description</label>
                                 <div class="col-sm-12">
                                     <textarea class="form-control" name="description" id="description" rows="5" placeholder="Description">{!! $weareherecontent->description !!}</textarea>

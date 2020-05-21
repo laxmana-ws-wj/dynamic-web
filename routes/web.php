@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
 Route::get('about_us', 'User\UserController@about_us')->name('about_us');
 Route::resource('ourgallary', 'OurgallaryController');
+Route::resource('whyus', 'WhyusController');
 Route::resource('contact', 'ContactController');
 Route::resource('ourblogs', 'OurblogController');
 Route::resource('faqs', 'User\FaqController');

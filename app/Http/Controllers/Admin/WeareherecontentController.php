@@ -15,9 +15,11 @@ class WeareherecontentController extends Controller
         return Validator::make($data, [
             'title' => 'required|string|max:2000',
             'description' => 'required',
+            'image' =>  'mimes:jpeg,jpg,png|required',
         ],[
             'title.required' => 'Enter About Title',
             'description.required' => 'Enter Aout Us Description',
+            'image.required' => 'Upload Why us Image',
         ]);
     }
     /**
@@ -51,9 +53,16 @@ class WeareherecontentController extends Controller
     {
         $this->validator($request->all())->validate();
 
+        $whyusImagepath = public_path('/whyus/whyus_images');
+        $image = $request->file('image');
+        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+        $image->move($whyusImagepath, $input['imagename']);
+        $imagedbPath = $whyusImagepath. '/'.$input['imagename'];
+        $whyus_image = $input['imagename'];
         Weareherecontent::create([
             'title' => $request->title,
             'description' => $request->description,
+            'image' => $whyus_image,
         ]);
         return redirect('admin/weareherecontent')->with('message', 'Content Inserted Successfully...');
     }
@@ -90,6 +99,17 @@ class WeareherecontentController extends Controller
     public function update(Request $request, Weareherecontent $weareherecontent)
     {
 
+        $image_name = $request->old_image;
+        $image = $request->file('image');
+        if($image != '')
+        {
+            $request->validate([
+                'image' =>  'mimes:jpeg,jpg,png|max:2084',
+            ]);
+
+            $image_name = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('/whyus/whyus_images'), $image_name);
+        }else{
             $request->validate([
                 'title' => 'required|string|max:1000',
                 'description' => 'required|string|min:1|max:1000',
@@ -99,11 +119,12 @@ class WeareherecontentController extends Controller
                 'description.max' => 'Maximum 1000 characters only',
                 'description.min' => 'Enter minimum 1 characters.',
             ]);
-
-
+        }
+            
         $form_data = array(
             'title' => $request->title,
             'description' => $request->description,
+            'image' => $image_name,
 
         );
 

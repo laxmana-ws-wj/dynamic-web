@@ -20,6 +20,11 @@ class CreateContactuscontentsTable extends Migration
             $table->string('our_email');
             $table->string('our_address', 1000);
             $table->string('map_link', 2000);
+            $table->string('fb_link', 2000);
+            $table->string('tw_link', 2000);
+            $table->string('li_link', 2000);
+            $table->string('image', 2000);
+            $table->string('description', 2000);
             $table->timestamps();
         });
     }
