@@ -42,6 +42,22 @@ Dashboard | Active Boys
                                     @endif
                                 </div>
                             </div>
+                              <div class="form-group">
+                                <label class="col-sm-6 col-form-label">Image <span class="text-danger"> 480 * 600 </span></label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control previewImg" name="image" id="image" placeholder="Slider Image File" value="{{ old('image') }}">
+                                    @if ($errors->has('image'))
+                                        <span class="messages">{{ $errors->first('image') }}</span>
+                                    @endif
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-3">
+                                            <span id="previewImg"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">

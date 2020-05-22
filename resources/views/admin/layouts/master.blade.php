@@ -151,7 +151,7 @@
                                     </a>
                                 </li>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="pcoded-hasmenu {{ (request()->is('admin/slidercontent*') ||request()->is('admin/homecontent*')||request()->is('admin/aboutuscontent*')||request()->is('admin/faqcontent*') ||request()->is('admin/testimonialcontent*') ||request()->is('admin/termconditioncontent*') ||request()->is('admin/weareherecontent*') ||request()->is('admin/workoutcontent*') ||request()->is('admin/contactuscontent*') ||request()->is('admin/blog*')) ? 'active pcoded-trigger' : '' }}">
+                                    <li class="pcoded-hasmenu {{ (request()->is('admin/slidercontent*') ||request()->is('admin/homecontent*') ||request()->is('admin/service*') ||request()->is('admin/gallarycontent*')||request()->is('admin/aboutuscontent*')||request()->is('admin/faqcontent*') ||request()->is('admin/testimonialcontent*') ||request()->is('admin/termconditioncontent*') ||request()->is('admin/weareherecontent*') ||request()->is('admin/workoutcontent*') ||request()->is('admin/contactuscontent*') ||request()->is('admin/blog*')) ? 'active pcoded-trigger' : '' }}">
                                         <a href="javascript:void(0)">
                                             <span class="pcoded-micon"><i class="fa fa-gear"></i></span>
                                             <span class="pcoded-mtext">CMS</span>
@@ -160,6 +160,11 @@
                                             <li class="{{ (request()->is('admin/slidercontent*')) ? 'active' : '' }}">
                                                 <a href="{{route('slidercontent.index')}}">
                                                     <span class="pcoded-mtext">Slider</span>
+                                                </a>
+                                            </li>
+                                             <li class="{{ (request()->is('admin/service*')) ? 'active' : '' }}">
+                                                <a href="{{route('service.index')}}">
+                                                    <span class="pcoded-mtext">Services</span>
                                                 </a>
                                             </li>
                                              <li class="{{ (request()->is('admin/homecontent*')) ? 'active' : '' }}">
@@ -185,6 +190,11 @@
                                             <li class="{{ (request()->is('admin/testimonialcontent*')) ? 'active' : '' }}">
                                                 <a href="{{route('testimonialcontent.index')}}">
                                                     <span class="pcoded-mtext">Testimonial</span>
+                                                </a>
+                                            </li>
+                                            <li class="{{ (request()->is('admin/teamcontent*')) ? 'active' : '' }}">
+                                                <a href="{{route('teamcontent.index')}}">
+                                                    <span class="pcoded-mtext">Our Team</span>
                                                 </a>
                                             </li>
                                             <li class="{{ (request()->is('admin/termconditioncontent*')) ? 'active' : '' }}">
@@ -348,6 +358,22 @@ function filePreview(input) {
 $(".previewImg").change(function () {
     filePreview(this);
 });
+
+
+function filePreview1(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#previewImg1 + img').remove();
+            $('#previewImg1').after('<img src="'+e.target.result+'" width="121px" height="60px"/>');
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$(".previewImg1").change(function () {
+    filePreview1(this);
+});
+
 // Preview Image Before Uploading
 </script>  
 </html>

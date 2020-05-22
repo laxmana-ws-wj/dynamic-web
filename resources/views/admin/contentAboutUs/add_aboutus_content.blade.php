@@ -45,7 +45,7 @@ Dashboard | Active Boys
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="col-sm-3 col-form-label">Image</label>
+                                <label class="col-sm-6 col-form-label">Image <span class="text-danger"> 330 * 190 </span></label>
                                 <div class="col-sm-10">
                                     <input type="file" class="form-control previewImg" name="image" id="image" placeholder="Slider Image File" value="{{ old('image') }}">
                                     @if ($errors->has('image'))

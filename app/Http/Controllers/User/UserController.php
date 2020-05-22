@@ -11,16 +11,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-
+use App\Teamcontent;
 class UserController extends Controller
 {
 
 
     public function about_us(){
+
+    	$teamcontents = Teamcontent::all();
         $testimonialcontents = Testimonialcontent::all();
         $weareherecontents = Weareherecontent::all();
         $aboutuscontents = Aboutuscontent::all();
-        return view('user.about_us',compact('aboutuscontents','weareherecontents','pricings','testimonialcontents'));
+        return view('user.about_us',compact('aboutuscontents','weareherecontents','pricings','testimonialcontents','teamcontents'));
     }
 
 }

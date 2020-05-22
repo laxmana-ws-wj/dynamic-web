@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Gallary;
+use Illuminate\Support\Facades\File;
 class GallaryController extends Controller
 {
     /**
@@ -41,21 +42,30 @@ class GallaryController extends Controller
                 'image.*' => 'mimes:jpeg,jpg,png|required'
         ]);
 
+          if(!empty($request->file('image'))){
+                foreach($request->file('image') as $img)
+                {
+                    $name=rand().$img->getClientOriginalExtension();
+                    $img->move(public_path().'/gallary/gallary_images', $name);
+                    $gallary_image[] = $name;
+                }
+            }
 
-        if($request->hasfile('image'))
-         {
-            foreach($request->file('image') as $file)
-            {
-                $name = time().'.'.$file->extension();
-                $file->move(public_path().'/gallary/gallary_images/', $name);  
+            for($count = 0; $count < count($request->file('image')); $count++)
+                {
+                    if(!empty($gallary_image[$count])){
+                        $image = $gallary_image[$count];
+                    }else{
+                        $image = "";
+                    }
                 $data = array(
-                    'image'  => $name,
-                ); 
-
+                    
+                    'image'  => $image,
+                );
                 $insert_data[] = $data;
             }
-         }
         Gallary::insert($insert_data);
+        
         return redirect('admin/gallarycontent')->with('message', 'Gallary Images Inserted Successfully...');
       
     }
@@ -77,9 +87,9 @@ class GallaryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+  public function edit(Gallary $gallarycontent)
     {
-        //
+        return view('admin.contentGallary.edit_gallary_content',compact('gallarycontent'));
     }
 
     /**
@@ -89,9 +99,27 @@ class GallaryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Gallary $gallarycontent)
     {
-        //
+        $image_name = $request->old_image;
+        $image = $request->file('image');
+        if($image != '')
+        {
+            $request->validate([
+                'image' =>  'mimes:jpeg,jpg,png|max:2084',
+            ]);
+
+            $image_name = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('/gallary/gallary_images'), $image_name);
+        }
+
+        $form_data = array(
+            'image'    =>   $image_name,
+
+        );
+
+        Gallary::whereId($gallarycontent->id)->update($form_data);
+        return redirect('admin/gallarycontent')->with('message', 'Gallary Image Update Successfully...');
     }
 
     /**
@@ -100,8 +128,14 @@ class GallaryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+      public function destroy(Gallary $gallarycontent)
     {
-        //
+        $data = Gallary::findOrFail($gallarycontent->id);
+        $image_path = "gallary/gallary_images/$gallarycontent->image";
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $data->delete();
+        return redirect('admin/gallarycontent')->with('message', 'Slider Content is successfully deleted');
     }
 }

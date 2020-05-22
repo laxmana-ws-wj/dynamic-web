@@ -81,7 +81,7 @@ Edit | Home Content
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="col-sm-3 col-form-label">Image</label>
+                                <label class="col-sm-6 col-form-label">Image <span class="text-danger"> 480 * 600 </span></label>
                                 <div class="col-sm-10">
                                     <input type="file" class="form-control previewImg" name="image" id="image" placeholder="Slider Image File" value="{{ old('image') }}">
                                     <input type="hidden" class="form-control" name="old_image"  value="{{ $homecontent->image }}">
@@ -91,7 +91,7 @@ Edit | Home Content
                                     <br>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <img src='{{asset("home/home_images/$homecontent->image")}}' height="60px";width="60px"; >
+                                            <img src='{{asset("public/home/home_images/$homecontent->image")}}' height="60px";width="60px"; >
                                         </div>
                                         <div class="col-sm-1"></div>
                                         <div class="col-sm-3">

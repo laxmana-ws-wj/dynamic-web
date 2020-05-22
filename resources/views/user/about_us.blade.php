@@ -94,10 +94,11 @@
             <div class="title-text centred">Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmo</div>
             <div class="team-content">
                 <div class="row">
+                    @foreach($teamcontents as $teamcontent)
                     <div class="col-lg-4 col-md-6 col-sm-12 team-column">
                         <div class="single-team-content single-item">
                             <div class="image img-box">
-                                <figure><img src="{{ asset('asset/assets_users/images/resource/team-1.jpg') }}" alt=""></figure>
+                                <figure><img src='{{ asset("public/team/team_images/$teamcontent->image") }}' alt=""></figure>
                                 <div class="overlay">
                                     <a class="link-btn" href="#">
                                         <i class="fa fa-link"></i>
@@ -105,61 +106,18 @@
                                 </div>
                             </div>
                             <div class="lower-content">
-                                <h4><a href="#">Heather Matthews</a></h4>
-                                <div class="title">Volunteer</div>
-                                <div class="text">Excepteur sint occaecat cupidatat non proident sunt.in culpa. deserunt mollit.</div>
-                                <ul class="social">
+                                <h4><a href="#">{{ $teamcontent->name }}</a></h4>
+                                <div class="title">{{ $teamcontent->position }}</div>
+                                <div class="text">{{ $teamcontent->description }}</div>
+                                <!-- <ul class="social">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 team-column">
-                        <div class="single-team-content single-item">
-                            <div class="image img-box">
-                                <figure><img src="{{ asset('asset/assets_users/images/resource/team-2.jpg') }}" alt=""></figure>
-                                <div class="overlay">
-                                    <a class="link-btn" href="#">
-                                        <i class="fa fa-link"></i>
-                                    </a>                                
-                                </div>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="#">Lauren Davis</a></h4>
-                                <div class="title">Volunteer</div>
-                                <div class="text">Excepteur sint occaecat cupidatat non proident sunt.in culpa. deserunt mollit.</div>
-                                <ul class="social">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 team-column">
-                        <div class="single-team-content single-item">
-                            <div class="image img-box">
-                                <figure><img src="{{ asset('asset/assets_users/images/resource/team-3.jpg') }}" alt=""></figure>
-                                <div class="overlay">
-                                    <a class="link-btn" href="#">
-                                        <i class="fa fa-link"></i>
-                                    </a>                                
-                                </div>
-                            </div>
-                            <div class="lower-content">
-                                <h4><a href="#">Cameron Rogers</a></h4>
-                                <div class="title">Volunteer</div>
-                                <div class="text">Excepteur sint occaecat cupidatat non proident sunt.in culpa. deserunt mollit.</div>
-                                <ul class="social">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

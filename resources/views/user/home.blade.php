@@ -36,20 +36,15 @@
         <div class="container-fluid">
             <div class="feature-content">
                 <div class="row">
+                    @foreach($services as $service)
                     <div class="col-lg-6 col-md-6 col-sm-12 feature-column">
-                        <div class="feature-content-two" style="background-image: url('{{ asset('public/asset/assets_users/images/resource/feature-4.jpg') }}');">
-                            <div class="icon-box wow zoomIn" data-wow-delay="300ms" data-wow-duration="1500ms"><i class="flaticon-money-bag"></i></div>
-                            <div class="title"><a href="#">Vulnerable Children Help</a></div>
-                            <div class="text">Lorem ipsum dolor sit amet cons adipisicing elit sed.</div>
+                        <div class="feature-content-two" style="background-image: url('{{ asset("public/service/service_images/$service->image") }}');">
+                            <div class="icon-box wow zoomIn" data-wow-delay="300ms" data-wow-duration="1500ms"><i class="{{ $service->icon }}"></i></div>
+                            <div class="title"><a href="#">{{ $service->title }}</a></div>
+                            <div class="text">{{ $service->description }}</div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 feature-column">
-                        <div class="feature-content-two" style="background-image: url('{{ asset('public/asset/assets_users/images/resource/feature-5.jpg') }}');">
-                            <div class="icon-box wow zoomIn" data-wow-delay="600ms" data-wow-duration="1500ms"><i class="flaticon-group"></i></div>
-                            <div class="title"><a href="#">Women Empowerment</a></div>
-                            <div class="text">Lorem ipsum dolor sit amet cons adipisicing elit sed.</div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -15,8 +15,9 @@ class TermconditionController extends Controller
      */
     public function index()
     {
-        $termconditioncontent = Termconditioncontent::all();
-        return view('user.terms', compact('termconditioncontent'));
+        $termconditioncontents  = Termconditioncontent::all();
+
+        return view('user.terms', compact('termconditioncontents'));
     }
 
     /**

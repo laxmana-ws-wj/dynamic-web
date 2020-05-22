@@ -47,7 +47,7 @@ Dashboard | Active Boys
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="col-sm-12 col-form-label">Blog Image</label>
+                                <label class="col-sm-6 col-form-label">Image <span class="text-danger"> 330 * 190 </span></label>
                                 
                                 <div class="col-sm-12">
                                     <input type="file" class="form-control previewImg" name="blog_image" id="blog_image" placeholder="Blog Image File" value="{{ old('blog_image') }}">

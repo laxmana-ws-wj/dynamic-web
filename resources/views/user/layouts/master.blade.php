@@ -215,7 +215,7 @@
                                 $logos = \App\Contactuscontent::all();
                                 @endphp
                             @foreach ($logos as $logo)
-                            <figure class="logo-box"><a href="{{url('/')}}"><img src='{{ asset("public/logo/logo_images/$logo->image")}}' alt=""></a></figure>
+                            <figure class="logo-box"><a href="{{url('/')}}"><img src='{{ asset("public/logo/logo_images/$logo->footer_logo")}}' alt=""></a></figure>
                             @endforeach
                             <div class="text">
                                 @php
@@ -242,8 +242,12 @@
                         <div class="service-widget footer-widget">
                             <div class="footer-title">Services</div>
                             <ul class="list">
-                                <li><a href="#">Vulnerable Children Help</a></li>
-                                <li><a href="#">Women Empowerment</a></li>
+                                @php
+                                    $services = \App\Service::all();
+                                @endphp
+                                @foreach($services as $service)
+                                <li><a href="#">{{ $service->title }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -278,8 +282,8 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 column">
                     <ul class="footer-nav">
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="{{ route('termsandconditions.index') }}">Terms of Service</a></li>
+                        <li><a href="{{ route('termsandconditions.index') }}">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>

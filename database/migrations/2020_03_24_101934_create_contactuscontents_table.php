@@ -24,6 +24,7 @@ class CreateContactuscontentsTable extends Migration
             $table->string('tw_link', 2000);
             $table->string('li_link', 2000);
             $table->string('image', 2000);
+            $table->string('footer_logo', 2000);
             $table->string('description', 2000);
             $table->timestamps();
         });

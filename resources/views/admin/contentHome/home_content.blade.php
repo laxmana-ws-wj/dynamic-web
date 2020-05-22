@@ -51,7 +51,7 @@ Dashboard | Rucha Samajik Sanstha
                             <td>{{$item->title}}</td>
                             <td>{{$item->sub_title}}</td>
                             <td>{!! $item->description !!}</td>
-                            <td><img src='{{ asset("home/home_images/$item->image")}}' height="60px";width="60px"; ></td>
+                            <td><img src='{{ asset("public/home/home_images/$item->image")}}' height="60px";width="60px"; ></td>
                             <td class="action-icon">
                                 <a href="{{ route('homecontent.edit',$item->id )}}" class="m-r-15 text-muted" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="icofont icofont-ui-edit"></i></a>
                                 {{-- <a href="#" class="m-r-15 text-muted"  onClick="event.preventDefault();document.getElementById('delete-form').submit();" ><i class="icofont icofont-delete-alt"></i></a>

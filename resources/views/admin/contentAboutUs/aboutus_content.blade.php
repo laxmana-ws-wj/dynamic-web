@@ -18,14 +18,7 @@ Dashboard | Active Boys
                                 <h5>About Us Content</h5>
                             </div>
                             <div>
-                                {{-- <span class="pull-right btn-group">
-                                    <a class="btn btn-sm btn-success" href="{{route('aboutuscontent.create')}}"><i
-                                            class="feather icon-plus"></i></a>
-                                    <button type="button" class="btn btn-sm btn-secondary" title="Refresh"><i
-                                            class="feather icon-refresh-cw"></i></button>
-                                    <button type="button" class="btn btn-sm btn-info" title="Excel Download"><i
-                                            class="feather icon-file-text"></i></button>
-                                </span> --}}
+                               
                                 <div class="clearfix"></div>
 
                             </div>

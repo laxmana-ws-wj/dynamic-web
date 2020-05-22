@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::resource('/admin/content-testimonial', 'Admin\ContentTestimonialController');
     Route::resource('/admin/content-pricing', 'Admin\ContentPricingController');
     Route::resource('/admin/content-we-are-here', 'Admin\ContentWeAreHereController');
+    Route::resource('/admin/service', 'Admin\ServiceController');
     Route::resource('/admin/contactuscontent', 'Admin\ContactuscontentController');
     Route::resource('/admin/faqcontent', 'Admin\FaqcontentController');
     Route::resource('/admin/content-terms', 'Admin\ContentTermsController');
@@ -30,6 +31,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::resource('/admin/aboutuscontent', 'Admin\AboutuscontentController');
     Route::resource('/admin/homecontent', 'Admin\HomecontentController');
     Route::resource('/admin/testimonialcontent', 'Admin\TestimonialcontentController');
+    Route::resource('/admin/teamcontent', 'Admin\TeamcontentController');
     Route::resource('/admin/termconditioncontent', 'Admin\TermconditioncontentController');
     Route::resource('/admin/weareherecontent', 'Admin\WeareherecontentController');
    

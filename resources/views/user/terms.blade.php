@@ -1,33 +1,43 @@
 @extends('user.layouts.master')
 
 @section('title')
-    Home | Active Boys
+     Terms And Conditions | Rucha Samajik Sanstha
 @endsection
 
 @section('content')
-<div class="terms-and-conditions-banner banner">
-    <div class="banner-txt">
+
+
+    <!-- page-title -->
+    <section class="page-title centred" style="background-image: url('{{ asset('asset/assets_users/images/background/page-title.jpg')}}');">
         <div class="container">
-            <h2 class="functional-main-heading">TERMS AND CONDITIONS</h2>
-
+            <div class="content-box">
+                <div class="title">Terms And Conditions</div>
+                <ul class="bread-crumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Terms And Conditions</li>
+                </ul>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
+    <!-- page-title end -->
 
-<div class="term-and-condition-section">
-    <div class="container">
-        <h2 class="workout-title">TERMS <span class="black-title">AND CONDITIONS</span></h2>
-        <hr class="red-border">
-        <br>
-        <div class="term-content">
-        
-            {!! $termconditioncontent[0]->termsandconditions !!}
+
+    <!-- about-style-two -->
+    <section class="about-style-two sec-pad">
+        <div class="container">
+            <div class="sec-title centred">Terms & <span>Conditions</span> </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 about-column">
+                    <div class="about-content">
+                        <div class="top-content">
+                            <div class="text">{!! $termconditioncontent[0]->termsandconditions !!}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-       
-        
-    </div>
-
-</div>
+    </section>
+    <!-- about-style-two -->
 
 @endsection
 

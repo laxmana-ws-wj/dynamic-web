@@ -46,6 +46,7 @@ Dashboard | Active Boys
                         </thead>
                         <tbody>
                             @foreach ($weareherecontents as $item)
+                            <tr>
                             <td>{{$item->title}}</td>
                             <td>{!! $item->description !!}</td>
                             <td class="action-icon">
@@ -56,6 +57,7 @@ Dashboard | Active Boys
                                     {{method_field('DELETE')}}
                                 </form> --}}
                             </td>
+                        </tr>
                             @endforeach
                         </tbody>
                     </table>

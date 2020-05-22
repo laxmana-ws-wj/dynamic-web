@@ -49,7 +49,7 @@ Dashboard | Active Boys
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="col-sm-3 col-form-label">Bg Image</label>
+                                <label class="col-sm-6 col-form-label">Bg Image <span class="text-danger"> 1920 * 880 </span></label>
                                 <div class="col-sm-12">
                                     <input type="file" class="form-control previewImg" name="bg_image" id="bg_image" placeholder="Slider Image File" value="{{ old('bg_image') }}">
                                     <input type="hidden" class="form-control" name="old_bg_image"  value="{{ $slidercontent->bg_image }}">

@@ -9,6 +9,7 @@ use App\Aboutuscontent;
 use App\Blog;
 use App\Testimonialcontent;
 use App\Homecontent;
+use App\Service;
 class HomeController extends Controller
 {
     /**
@@ -28,12 +29,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $services = Service::all();
         $slidercontents = Slidercontent::all();
         $aboutuscontents = Aboutuscontent::all();
         $homecontents = Homecontent::all();
         $testimonialcontents = Testimonialcontent::all();
         $workoutcontent = Workoutcontent::all();
         $blogs = Blog::orderBy('id','desc')->limit(3)->get();
-        return view('user.home',compact('blogs','testimonialcontents','slidercontents','aboutuscontents','workoutcontent','homecontents'));
+        return view('user.home',compact('blogs','testimonialcontents','slidercontents','aboutuscontents','workoutcontent','homecontents','services'));
     }
 }

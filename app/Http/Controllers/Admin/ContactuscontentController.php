@@ -132,6 +132,16 @@ class ContactuscontentController extends Controller
             $image_name = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('logo/logo_images'), $image_name);
         }
+        $image_name1 = $request->old_footer_logo;
+        $image1 = $request->file('footer_logo');
+        if($image1 != '')
+        {
+            $request->validate([
+                'image' =>  'image|max:2048'
+            ]);
+            $image_name1 = time() . '.' . $image1->getClientOriginalExtension();
+            $image1->move(public_path('logo/logo_images'), $image_name1);
+        }
         $form_data = array(
             'call_us_now_1' => $request->contact_us_1,
             'call_us_now_2' => $request->contact_us_2,
@@ -139,6 +149,7 @@ class ContactuscontentController extends Controller
             'our_address' => $request->our_address,
             'map_link' => $request->map_link,
             'image' => $image_name,
+            'footer_logo'=> $image_name1,
             'fb_link' => $request->fb_link,
             'tw_link' => $request->tw_link,
             'li_link' => $request->li_link,

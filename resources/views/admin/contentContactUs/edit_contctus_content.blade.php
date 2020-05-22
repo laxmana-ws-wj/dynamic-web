@@ -25,7 +25,7 @@ Dashboard | Active Boys
                     <div class="row">
                          <div class="col-md-6">
                             <div class="form-group">
-                                <label class="col-sm-3 col-form-label">Image</label>
+                                <label class="col-sm-6 col-form-label">Header Logo <span class="text-danger"> 180 * 52 </span></label>
                                 <div class="col-sm-10">
                                     <input type="file" class="form-control previewImg" name="image" id="image" placeholder="Slider Image File" value="{{ old('image') }}">
                                     <input type="hidden" class="form-control" name="old_image"  value="{{ $contactuscontent->image }}">
@@ -39,6 +39,25 @@ Dashboard | Active Boys
                                         <div class="col-sm-1"></div>
                                         <div class="col-sm-3">
                                             <span id="previewImg"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                 <label class="col-sm-6 col-form-label">Footer Logo <span class="text-danger"> 180 * 52 </span></label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control previewImg1" name="footer_logo" id="footer_logo" placeholder="Footer Image File" value="{{ old('footer_logo') }}">
+                                    <input type="hidden" class="form-control" name="old_footer_logo"  value="{{ $contactuscontent->footer_logo }}">
+                                    @if ($errors->has('footer_logo'))
+                                        <span class="messages">{{ $errors->first('footer_logo') }}</span>
+                                    @endif
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <img src='{{asset("public/logo/logo_images/$contactuscontent->footer_logo")}}' height="60px";width="60px"; >
+                                        </div>
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-3">
+                                            <span id="previewImg1"></span>
                                         </div>
                                     </div>
                                 </div>

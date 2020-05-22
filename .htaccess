@@ -15,4 +15,4 @@ RewriteRule ^ index.php [L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !^/public/
-RewriteRule ^(asset|admin_assets|assets_users|login_assets|css|js|images|html5lightbox|icons)/(.*)$ public/$1/$2 [L,NC]
+RewriteRule ^(asset|admin_assets|assets_users|front-end|fonts|css|js|images|html5lightbox|icons)/(.*)$ public/$1/$2 [L,NC]
